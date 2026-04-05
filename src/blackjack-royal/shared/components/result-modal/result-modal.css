@@ -1,0 +1,49 @@
+@reference '../../../../index.css';
+
+.modal-overlay {
+    @apply fixed inset-0 grid place-items-center p-5 z-200;
+    background: rgba(0, 0, 0, 0.68);
+    backdrop-filter: blur(3px);
+}
+
+.modal-card {
+    @apply w-full max-w-105 rounded-2xl border overflow-hidden;
+    border-color: rgba(212, 175, 55, 0.45);
+    background: linear-gradient(165deg, #09170f 0%, #12211c 100%);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+    color: #f4f4f4;
+}
+
+.modal-header {
+    @apply px-4.5 py-4 border-b;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.modal-header h2 {
+    @apply m-0 text-[1.3rem] font-extrabold tracking-[0.02em];
+}
+
+.modal-header.ganador {
+    background: linear-gradient(135deg, rgba(38, 166, 91, 0.35), rgba(19, 104, 56, 0.2));
+    color: #b8ffd9;
+}
+
+.modal-header.perdedor {
+    background: linear-gradient(135deg, rgba(196, 30, 58, 0.35), rgba(99, 13, 30, 0.22));
+    color: #ffd0da;
+}
+
+.modal-header.empate {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(105, 84, 22, 0.18));
+    color: #f4e4ba;
+}
+
+.modal-message {
+    @apply m-0 px-4.5 pt-5 pb-3 text-base leading-normal;
+}
+
+.modal-close {
+    @apply my-0 mx-4.5 mb-4.5 border-0 rounded-[10px] py-2.75 font-bold cursor-pointer text-[#1b1b1b];
+    width: calc(100% - 36px);
+    background: linear-gradient(135deg, #d4af37, #f4e4ba);
+}

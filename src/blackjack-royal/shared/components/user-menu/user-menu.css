@@ -1,0 +1,38 @@
+@reference '../../../../index.css';
+
+.profile-corner {
+    @apply absolute top-3.5 right-3.5;
+}
+
+.profile-trigger {
+    @apply w-11 h-11 rounded-full border-2 font-bold text-lg cursor-pointer;
+    border-color: #d4af37;
+    background: rgba(6, 15, 10, 0.95);
+    color: #f4e4ba;
+}
+
+.profile-menu {
+    @apply absolute top-12.5 right-0 w-55 p-3 rounded-xl border z-50;
+    border-color: rgba(212, 175, 55, 0.45);
+    background: rgba(6, 14, 10, 0.96);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.45);
+}
+
+.profile-name {
+    @apply m-0 mb-2.5 font-bold;
+    color: #f4e4ba;
+}
+
+.profile-action {
+    @apply w-full border rounded-lg p-2 cursor-pointer;
+    border-color: rgba(196, 30, 58, 0.65);
+    color: #ffd7de;
+    background: rgba(196, 30, 58, 0.2);
+}
+
+.profile-action-secondary {
+    @apply mb-2;
+    border-color: rgba(212, 175, 55, 0.5);
+    background: rgba(212, 175, 55, 0.16);
+    color: #f4e4ba;
+}

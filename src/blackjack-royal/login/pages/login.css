@@ -1,0 +1,68 @@
+@reference '../../../index.css';
+
+.auth-shell {
+    @apply min-h-screen grid place-items-center p-5;
+    background:
+        radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.2), transparent 30%),
+        radial-gradient(circle at 85% 85%, rgba(46, 204, 113, 0.18), transparent 28%),
+        linear-gradient(160deg, #08130d 0%, #101c2d 100%);
+}
+
+.auth-card {
+    @apply w-full max-w-120 rounded-2xl p-6 text-[#f4f4f4];
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    background: rgba(7, 12, 24, 0.86);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+}
+
+.auth-header h1 {
+    @apply m-0 tracking-[0.04em] text-[#d4af37];
+}
+
+.auth-header p {
+    @apply mt-2 mb-0 text-white/75;
+}
+
+.auth-tabs {
+    @apply mt-4.5 grid grid-cols-2 gap-2;
+}
+
+.tab-btn {
+    @apply rounded-[10px] p-2.5 cursor-pointer border bg-transparent text-[#f4e4ba];
+    border-color: rgba(212, 175, 55, 0.45);
+}
+
+.tab-btn.active {
+    background: rgba(212, 175, 55, 0.18);
+}
+
+.auth-form {
+    @apply mt-4.5 grid gap-3;
+}
+
+.auth-form label {
+    @apply grid gap-1.5 font-semibold;
+}
+
+.auth-form input {
+    @apply rounded-[10px] border px-3 py-2.75 text-white;
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(6, 8, 14, 0.65);
+}
+
+.feedback {
+    @apply m-0 text-[0.9rem];
+}
+
+.feedback.error {
+    @apply text-[#ff9aa9];
+}
+
+.feedback.info {
+    @apply text-[#98f5c7];
+}
+
+.submit-btn {
+    @apply mt-1 rounded-xl p-3 font-bold text-[#1a1a1a] cursor-pointer border-0 disabled:opacity-70 disabled:cursor-not-allowed;
+    background: linear-gradient(135deg, #d4af37, #f4e4ba);
+}
