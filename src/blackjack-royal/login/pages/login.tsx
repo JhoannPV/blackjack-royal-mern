@@ -1,4 +1,4 @@
-import { useEffect, useState, type FormEvent } from 'react';
+import { useEffect, useState, type SyntheticEvent } from 'react';
 import { useNavigate } from 'react-router';
 import { useAuthStore } from '../../../hooks';
 import './login.css';
@@ -48,7 +48,7 @@ export const Login = () => {
         setMensajeInfo('');
     };
 
-    const enviarFormulario = async (evento: FormEvent<HTMLFormElement>) => {
+    const enviarFormulario = async (evento: SyntheticEvent<HTMLFormElement>) => {
         evento.preventDefault();
 
         setMensajeError('');
