@@ -1,0 +1,49 @@
+@reference '../index.css';
+
+.router-loading {
+    @apply min-h-screen grid place-items-center p-5;
+    background:
+        radial-gradient(circle at 18% 18%, rgba(212, 175, 55, 0.22), transparent 32%),
+        radial-gradient(circle at 82% 85%, rgba(46, 204, 113, 0.14), transparent 30%),
+        linear-gradient(160deg, #08130d 0%, #101c2d 100%);
+}
+
+.router-loading__card {
+    @apply w-full max-w-[34rem] rounded-2xl p-8 text-[#f4f4f4] text-center;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    background: rgba(7, 12, 24, 0.86);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+}
+
+.router-loading__badge {
+    @apply inline-block mb-3 px-3 py-1.5 rounded-full text-xs tracking-[0.1em] uppercase;
+    color: #f4e4ba;
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    background: rgba(212, 175, 55, 0.12);
+}
+
+.router-loading__title {
+    @apply m-0 text-[1.7rem] leading-tight;
+    color: #d4af37;
+}
+
+.router-loading__text {
+    @apply mt-2 mb-5 text-white/80;
+}
+
+.router-loading__bar {
+    @apply mx-auto h-[6px] w-full max-w-[18rem] rounded-full;
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.95), rgba(212, 175, 55, 0.2));
+    background-size: 220% 100%;
+    animation: router-loading-slide 1.3s ease-in-out infinite;
+}
+
+@keyframes router-loading-slide {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
