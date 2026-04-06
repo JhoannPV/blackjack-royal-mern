@@ -19,7 +19,6 @@ export interface ErrorResponse {
     response?: {
         data?: {
             error?: string;
-            message?: string;
             errors?: Record<string, { msg?: string }>;
         }
     }

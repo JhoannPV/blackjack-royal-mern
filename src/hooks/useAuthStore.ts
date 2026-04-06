@@ -10,14 +10,9 @@ export const useAuthStore = () => {
 
     const getApiErrorMessage = (error: ErrorResponse, fallback: string) => {
         const directError = error?.response?.data?.error;
-        const directMessage = error?.response?.data?.message;
 
         if (directError) {
             return directError;
-        }
-
-        if (directMessage) {
-            return directMessage;
         }
 
         const mappedErrors = error?.response?.data?.errors;
