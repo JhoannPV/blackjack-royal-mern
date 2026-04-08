@@ -49,7 +49,7 @@ export const useStatsStore = () => {
         } catch (error) {
             const { response } = error as ErrorResponse;
             dispatch(onSetPlayerStats(statsDefault));
-            dispatch(onSetStatsError(response?.data?.error || response?.data?.message || 'No se pudieron cargar tus estadisticas.'));
+            dispatch(onSetStatsError(response?.data?.error || 'No se pudieron cargar tus estadisticas.'));
         }
     }, [api, dispatch]);
 
@@ -66,7 +66,7 @@ export const useStatsStore = () => {
             }));
         } catch (error) {
             const { response } = error as ErrorResponse;
-            dispatch(onSetStatsError(response?.data?.error || response?.data?.message || 'No se pudo registrar el resultado.'));
+            dispatch(onSetStatsError(response?.data?.error || 'No se pudo registrar el resultado.'));
         }
     }, [api, dispatch]);
 
@@ -79,7 +79,7 @@ export const useStatsStore = () => {
         } catch (error) {
             const { response } = error as ErrorResponse;
             dispatch(onSetRanking([]));
-            dispatch(onSetStatsError(response?.data?.error || response?.data?.message || 'No se pudo cargar el ranking global.'));
+            dispatch(onSetStatsError(response?.data?.error || 'No se pudo cargar el ranking global.'));
         }
     }, [api, dispatch]);
 
