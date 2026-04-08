@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useAuthStore } from '../../../../hooks';
 import './user-menu.css';
@@ -17,6 +17,7 @@ export const UserMenu = ({
     const navigate = useNavigate();
     const { user, startLogout } = useAuthStore();
     const [menuAbierto, setMenuAbierto] = useState(false);
+    const menuRef = useRef<HTMLDivElement | null>(null);
 
     const inicialUsuario = useMemo(() => {
         const nombre = typeof user?.name === 'string' ? user.name.trim() : '';
@@ -38,8 +39,30 @@ export const UserMenu = ({
         navigate('/auth/login', { replace: true });
     };
 
+    useEffect(() => {
+        if (!menuAbierto) {
+            return;
+        }
+
+        const handleClickFuera = (evento: MouseEvent) => {
+            if (!menuRef.current) {
+                return;
+            }
+
+            if (!menuRef.current.contains(evento.target as Node)) {
+                setMenuAbierto(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickFuera);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickFuera);
+        };
+    }, [menuAbierto]);
+
     return (
-        <div className="profile-corner">
+        <div className="profile-corner" ref={menuRef}>
             <button
                 type="button"
                 className="profile-trigger"

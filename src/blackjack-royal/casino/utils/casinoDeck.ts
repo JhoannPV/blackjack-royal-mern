@@ -1,18 +1,8 @@
+import _ from 'underscore';
 import type { Carta, FiguraEspecial, PaloCarta } from '../types/casinoGameTypes';
 
 const PALOS: PaloCarta[] = ['C', 'D', 'H', 'S'];
 const FIGURAS_ESPECIALES: FiguraEspecial[] = ['A', 'J', 'Q', 'K'];
-
-const mezclar = <T>(array: T[]) => {
-    const copia = [...array];
-
-    for (let i = copia.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [copia[i], copia[j]] = [copia[j], copia[i]];
-    }
-
-    return copia;
-};
 
 export const crearBaraja = (): Carta[] => {
     const deck: Carta[] = [];
@@ -29,7 +19,7 @@ export const crearBaraja = (): Carta[] => {
         }
     }
 
-    return mezclar(deck);
+    return _.shuffle(deck);
 };
 
 export const valorCarta = (carta: Carta) => {

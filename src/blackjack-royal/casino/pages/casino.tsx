@@ -126,25 +126,35 @@ export const Casino = () => {
 
         setJuegoTerminado(true);
 
-        while (puntosComp <= puntosJugadorActual && puntosJugadorActual < 21) {
+        // Si el jugador se pasó de 21, la computadora toma al menos una carta
+        if (puntosJugadorActual > 21) {
             const { carta, mazoRestante } = tomarCarta(mazo);
             mazo = mazoRestante;
             cartasComp.push(carta);
             puntosComp += valorCarta(carta);
+        } else if (puntosJugadorActual < 21) {
+            // Si el jugador tiene menos de 21, la computadora toma cartas hasta alcanzarle o pasarse
+            while (puntosComp <= puntosJugadorActual && puntosJugadorActual < 21) {
+                const { carta, mazoRestante } = tomarCarta(mazo);
+                mazo = mazoRestante;
+                cartasComp.push(carta);
+                puntosComp += valorCarta(carta);
 
-            if (puntosComp > 21) {
-                break;
+                if (puntosComp > 21) {
+                    break;
+                }
             }
-        }
+        } else if (puntosJugadorActual === 21) {
+            // Si el jugador hizo 21, la computadora intenta alcanzarle o ganarle
+            while (puntosComp < puntosJugadorActual && puntosJugadorActual === 21) {
+                const { carta, mazoRestante } = tomarCarta(mazo);
+                mazo = mazoRestante;
+                cartasComp.push(carta);
+                puntosComp += valorCarta(carta);
 
-        while (puntosComp < puntosJugadorActual && puntosJugadorActual === 21) {
-            const { carta, mazoRestante } = tomarCarta(mazo);
-            mazo = mazoRestante;
-            cartasComp.push(carta);
-            puntosComp += valorCarta(carta);
-
-            if (puntosComp >= 21) {
-                break;
+                if (puntosComp >= 21) {
+                    break;
+                }
             }
         }
 
