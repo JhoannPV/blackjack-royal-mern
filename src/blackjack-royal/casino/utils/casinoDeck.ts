@@ -44,4 +44,4 @@ export const valorCarta = (carta: Carta) => {
     return 13;
 };
 
-export const rutaCarta = (carta: Carta) => new URL(`../../../assets/cartas/${carta}.png`, import.meta.url).href;
+export const rutaCarta = (carta: Carta) => new URL(`../../../assets/cartas/${carta}.webp`, import.meta.url).href;
